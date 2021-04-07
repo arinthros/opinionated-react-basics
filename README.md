@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Opinionated React Basics
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A guide to best common practices, style preferences, and patterns used by the YouVersion team.
 
-## Available Scripts
+> This is not intended to be a beginner's guide to React, but a guide to the opinionated way that we write react.
+> See [EpicReact.dev](https://epicreact.dev) for our preferred course on all things React.
 
-In the project directory, you can run:
+For this example we will be using `@arinthros/common` which is my public package that is very similar to the private `@youversion/eslint-config`.
 
-### `yarn start`
+## Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Copy the `.vscode` folder from `node_modules/@arinthros/common` to the project root. This will auto-fix any lint or prettier issues when saving.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Eslint/Prettier
 
-### `yarn test`
+Extend or import from our shared config packages. We accept merge requests! If you have trouble with a rule, make the edits, and bring it up with the web team for discussion and publishing to the shared package.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> See [@arinthros/common] for more details
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Branch naming
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Format: `{initials}/{JIRA-ID}_{descriptive-name}`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Example: `git checkout -b bdh/YV-123_fix-plans-page-render-bug`
 
-### `yarn eject`
+## AHA Paradigm
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+We subscribe to the Avoid Hasty Abstractions (AHA) paradigm, rather than DRY or WET. Only make an abstraction when it makes sense.
+> See [AHA Programming](https://kentcdodds.com/blog/aha-programming)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Code Style guide
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Most of our styles are enforced through linting rules, but there are some which are not. We created style guides for the most common patterns.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [JavaScript Style Guide](https://docs.thewardro.be/bcps/docs/web/JavaScript_Style_Guide.html)
+- [React Style Guide](https://docs.thewardro.be/bcps/docs/web/React_Style_Guide.html)
