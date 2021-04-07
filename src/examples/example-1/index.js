@@ -5,6 +5,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
+ * StatusType ENUMs.
+ */
+const statusTypes = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+}
+
+/**
  * @typedef PersonObject
  * @property {number} id - The person's id.
  * @property {string} name - The person's name.
@@ -23,9 +33,25 @@ import PropTypes from 'prop-types'
  * @returns {React.ReactElement} - The ExampleComponent component.
  */
 export function ExampleComponent({ heading, people, ...props }) {
+  const [loadingStatus, setLoadingStatus] = React.useState(statusTypes.PENDING)
+
+  React.useEffect(() => {
+    async function loadData() {
+      await new Promise((resolve) => {
+        setTimeout(resolve('some data'), 1000)
+      })
+      setLoadingStatus(statusTypes.RESOLVED)
+    }
+    loadData()
+  }, [])
+
+  if (loadingStatus !== statusTypes.RESOLVED) {
+    return <>Loading data...</>
+  }
   return (
     <>
       <h2>{heading}</h2>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <ul {...props}>
         {people.map((person) => {
           return (
